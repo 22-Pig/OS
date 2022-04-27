@@ -32,11 +32,12 @@ pcb *CreateProcess(pcb *head, int n)
         printf("请输入第%d个进程名字：\n", i + 1);
         scanf("%s", &q->name);
         printf("输入进程相关数据：\n");
-        scanf("%s", &q->status);
+        scanf("%d", &q->status);
         fflush(stdin);
         // q->next = p->next;
+        q->next = NULL;
         p->next = q;
-        p = q;
+        p = p->next;
     }
     return head;
 }
@@ -50,8 +51,7 @@ void ProcessFiFo(pcb *head)
 
     while (p)
     {
-        printf("%s", p->name);
-        printf("1");
+        printf("%c", p->name);
         p = p->next;
     }
     printf("\n");
